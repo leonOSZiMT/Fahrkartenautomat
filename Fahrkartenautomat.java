@@ -3,7 +3,8 @@
  * @author Leon Müller (SE-C 41) 
  * A2.6 Fahrkartenautomat kommentieren
  * A3.3: Ausgabe des Fahrkartenautomaten anpassen  
- * A3.4 Anzahl der Tickets hinzufügen  
+ * A3.4 Anzahl der Tickets hinzufügen 
+ * A4.3: Ticketgrenzen im Fahrkartenautomat  
  */
 
 import java.util.Scanner;
@@ -23,10 +24,14 @@ class Fahrkartenautomat {
 
     // Ticketpreis und Anzahl der Tickets
     System.out.print("Ticketpreis (Euro): ");
-    ticketpreis = tastatur.nextDouble();      
+    ticketpreis = tastatur.nextDouble();
+    if (ticketpreis < 1 || ticketpreis > 10) {
+      System.out.println("Fehlerhafte Eingabe -  Ticketpreis wird auf 1 gesetzt");
+      ticketpreis = 1;
+      }
     System.out.print("Anzahl der Tickets: ");
     anzahlTickets = tastatur.nextByte();   
-    
+ 
     zuZahlenderBetrag = ticketpreis * anzahlTickets;         
 
     // Geldeinwurf
